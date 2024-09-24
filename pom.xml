@@ -4,7 +4,7 @@
 
   <groupId>br.com.processo-seletivo</groupId>
   <artifactId>processo-seletivo</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-FINAL</version>
   <packaging>jar</packaging>
 
   <properties>
