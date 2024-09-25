@@ -1,5 +1,7 @@
 package br.com.processo_seletivo.processo_seletivo.entidades;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -25,7 +27,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Diretorio {
+public class Diretorio implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +39,7 @@ public class Diretorio {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "diretorio", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Arquivo> arquivos;
+    private List<Arquivo> arquivos = new ArrayList<>();
 
     @OneToMany(mappedBy = "diretorioPai", cascade = CascadeType.ALL)
     private List<Diretorio> subDiretorios;

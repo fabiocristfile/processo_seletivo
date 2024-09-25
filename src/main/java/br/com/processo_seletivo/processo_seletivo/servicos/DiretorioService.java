@@ -1,8 +1,9 @@
-
 package br.com.processo_seletivo.processo_seletivo.servicos;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.processo_seletivo.processo_seletivo.entidades.Diretorio;
@@ -11,31 +12,26 @@ import br.com.processo_seletivo.processo_seletivo.repositorios.DiretorioReposito
 @Service
 public class DiretorioService {
 
-    private final DiretorioRepository diretorioRepository;
+    @Autowired
+    private DiretorioRepository diretorioRepository;
 
-    // Construtor padrão usado pelo Spring
-
-    public DiretorioService(DiretorioRepository diretorioRepository) {
-        this.diretorioRepository = diretorioRepository;
-    }
-
-    // Retorna todos os diretórios
-    public List<Diretorio> getAllDiretorios() {
+    public List<Diretorio> findAll() {
         return diretorioRepository.findAll();
     }
 
-    // Retorna um diretório específico pelo ID
-    public Diretorio getDiretorioById(Long id) {
-        return diretorioRepository.findById(id).orElse(null);
+    public Optional<Diretorio> findById(Long id) {
+        return diretorioRepository.findById(id); 
     }
 
-    // Cria ou atualiza um diretório
-    public Diretorio createDiretorio(Diretorio diretorio) {
+    public Optional<Diretorio> findByNome(String nome) {
+        return diretorioRepository.findByNome(nome); // Chama o método do repositório
+    }
+
+    public Diretorio save(Diretorio diretorio) {
         return diretorioRepository.save(diretorio);
     }
 
-    // Remove um diretório pelo ID
-    public void deleteDiretorio(Long id) {
+    public void deleteById(Long id) {
         diretorioRepository.deleteById(id);
     }
 }
