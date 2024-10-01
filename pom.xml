@@ -4,7 +4,7 @@
 
   <groupId>br.com.processo-seletivo</groupId>
   <artifactId>processo-seletivo</artifactId>
-  <version>1.0.0-FINAL</version>
+  <version>2.0.0-FINAL</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -44,6 +44,10 @@
     <scope>test</scope>
 </dependency>
 
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-websocket</artifactId>
+	</dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>

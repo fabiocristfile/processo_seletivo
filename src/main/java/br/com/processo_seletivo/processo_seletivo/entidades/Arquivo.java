@@ -21,20 +21,20 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Arquivo implements Serializable{
-	
+public class Arquivo implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    private String nome;
-    private String extensao;
-    private Long tamanho;
+	private String nome;
+	private String extensao;
+	private Long tamanho;
 
-    @JsonBackReference
-    @ManyToOne
-    @JoinColumn(name = "diretorio_id")
-    private Diretorio diretorio;   
+	@JsonBackReference
+	@ManyToOne
+	@JoinColumn(name = "diretorio_id", nullable = false)
+	private Diretorio diretorio;
 }

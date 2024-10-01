@@ -1,61 +1,67 @@
 package br.com.processo_seletivo.processo_seletivo;
 
-import java.util.ArrayList;
+import javax.annotation.PostConstruct;
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 
 import br.com.processo_seletivo.processo_seletivo.entidades.Arquivo;
 import br.com.processo_seletivo.processo_seletivo.entidades.Diretorio;
-import br.com.processo_seletivo.processo_seletivo.repositorios.ArquivoRepository;
 import br.com.processo_seletivo.processo_seletivo.repositorios.DiretorioRepository;
 
-@Component
-public class DataInitializer implements CommandLineRunner {
+@Configuration
+public class DataInitializer {
 
-    private final DiretorioRepository diretorioRepository;
-    private final ArquivoRepository arquivoRepository;
+    @Autowired
+    private DiretorioRepository diretorioRepository;
 
-    public DataInitializer(DiretorioRepository diretorioRepository, ArquivoRepository arquivoRepository) {
-        this.diretorioRepository = diretorioRepository;
-        this.arquivoRepository = arquivoRepository;
-    }
+    @PostConstruct
+    public void init() {
+        if (diretorioRepository.findByNome("Root").isEmpty()) {
+            Diretorio root = new Diretorio();
+            root.setNome("Root");
 
-    @Override
-    public void run(String... args) {
-        // Criação do diretório raiz
-        Diretorio root = new Diretorio(null, "Root", new ArrayList<>(), new ArrayList<>(), null);
-        diretorioRepository.save(root); // Salva o diretório raiz antes de criar os subdiretórios
+            Diretorio diretorio1 = new Diretorio();
+            diretorio1.setNome("Diretorio1");
+            diretorio1.setDiretorioPai(root);
 
-        // Criação de Diretório 1 e seus arquivos
-        Diretorio dir1 = new Diretorio(null, "Diretorio1", new ArrayList<>(), new ArrayList<>(), root);
-        diretorioRepository.save(dir1);
-        
-        for (int j = 1; j <= 2; j++) {
-            Arquivo arquivo = new Arquivo(null, "Arquivo" + j + ".txt", "txt", 1024L * j, dir1);
-            arquivoRepository.save(arquivo);
-            dir1.getArquivos().add(arquivo);
+            Diretorio diretorio2 = new Diretorio();
+            diretorio2.setNome("Diretorio2");
+            diretorio2.setDiretorioPai(root);
+
+            Diretorio subDiretorio1 = new Diretorio();
+            subDiretorio1.setNome("SubDiretorio1");
+            subDiretorio1.setDiretorioPai(diretorio2);
+
+            // Adicionando os arquivos
+            Arquivo arquivo1 = new Arquivo();
+            arquivo1.setNome("Arquivo1.txt");
+            arquivo1.setExtensao("txt");
+            arquivo1.setTamanho(1024l);
+            arquivo1.setDiretorio(diretorio1);
+
+            Arquivo arquivo2 = new Arquivo();
+            arquivo2.setNome("Arquivo2.txt");
+            arquivo2.setExtensao("txt");
+            arquivo2.setTamanho(2048l);
+            arquivo2.setDiretorio(diretorio1);
+
+            Arquivo arquivo3 = new Arquivo();
+            arquivo3.setNome("Arquivo3.txt");
+            arquivo3.setExtensao("txt");
+            arquivo3.setTamanho(3072l);
+            arquivo3.setDiretorio(subDiretorio1);
+
+            // Relacionando os diretórios e arquivos
+            root.getSubDiretorios().add(diretorio1);
+            root.getSubDiretorios().add(diretorio2);
+            diretorio1.getArquivos().add(arquivo1);
+            diretorio1.getArquivos().add(arquivo2);
+            diretorio2.getSubDiretorios().add(subDiretorio1);
+            subDiretorio1.getArquivos().add(arquivo3);
+
+            // Salvando no repositório
+            diretorioRepository.save(root);
         }
-        
-        root.getSubDiretorios().add(dir1);
-
-        // Criação de Diretório 2 e seu subdiretório
-        Diretorio dir2 = new Diretorio(null, "Diretorio2", new ArrayList<>(), new ArrayList<>(), root);
-        diretorioRepository.save(dir2);
-
-        // Criação do SubDiretorio1 dentro do Diretorio2
-        Diretorio subDir1 = new Diretorio(null, "SubDiretorio1", new ArrayList<>(), new ArrayList<>(), dir2);
-        diretorioRepository.save(subDir1);
-
-        // Adicionar Arquivo3 ao SubDiretorio1
-        Arquivo arquivo3 = new Arquivo(null, "Arquivo3.txt", "txt", 1024L * 3, subDir1);
-        arquivoRepository.save(arquivo3);
-        subDir1.getArquivos().add(arquivo3);
-        
-        dir2.getSubDiretorios().add(subDir1);
-        root.getSubDiretorios().add(dir2);
-
-        // Salvar as alterações no diretório raiz
-        diretorioRepository.save(root);
     }
 }

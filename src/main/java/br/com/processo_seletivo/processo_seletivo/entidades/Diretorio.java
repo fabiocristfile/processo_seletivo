@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,15 +20,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Diretorio implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
+public class Diretorio implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,14 +37,16 @@ public class Diretorio implements Serializable{
     private String nome;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "diretorio", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "diretorio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Arquivo> arquivos = new ArrayList<>();
 
-    @OneToMany(mappedBy = "diretorioPai", cascade = CascadeType.ALL)
-    private List<Diretorio> subDiretorios;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "diretorioPai", cascade = CascadeType.ALL,  orphanRemoval = true) 
+    private List<Diretorio> subDiretorios = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "diretorio_pai_id")
     @JsonBackReference
     private Diretorio diretorioPai;
+    
 }

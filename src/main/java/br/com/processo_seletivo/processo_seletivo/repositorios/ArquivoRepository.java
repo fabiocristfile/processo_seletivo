@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.processo_seletivo.processo_seletivo.entidades.Arquivo;
 
 public interface ArquivoRepository extends JpaRepository<Arquivo, Long> {
- 	
-    List<Arquivo> findByDiretorioId(Long diretorioId);
+
+	List<Arquivo> findByDiretorioId(Long diretorioId);
 }
