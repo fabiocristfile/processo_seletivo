@@ -1,109 +1,70 @@
-# Projeto de Gestão de Diretórios e Arquivos
+# Getting Started with Create React App
 
-Este projeto é uma aplicação para gerenciar diretórios e arquivos, permitindo operações de CRUD (Criar, Ler, Atualizar e Deletar) em um sistema de diretórios. A aplicação utiliza Spring Boot para o backend e React.js para o frontend, com comunicação em tempo real utilizando WebSockets.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Funcionalidades
+## Available Scripts
 
-- **CRUD de Diretórios**: Criar, ler, atualizar e deletar diretórios.
-- **CRUD de Arquivos**: Criar, ler, atualizar e deletar arquivos dentro dos diretórios.
-- **Hierarquia de Diretórios**: Visualização e navegação em subdiretórios.
-- **Comunicação em Tempo Real**: Notificações sobre alterações em arquivos e diretórios utilizando WebSockets.
-- **Documentação da API**: Documentação da API disponível através do Swagger.
+In the project directory, you can run:
 
-## Tecnologias Utilizadas
+### `npm start`
 
-- **Backend**: 
-  - Backend: Spring Boot
-  - Frontend: React.js
-  - Banco de Dados: H2
-  - Testes: JUnit 5, Mockito
-  - Comunicação em Tempo Real: WebSockets, STOMP, SockJS
-  - Documentação: Swagger
-    
-- **Frontend**: 
-  - React.js
-  - Axios (para chamadas HTTP)
-  - CSS para estilização
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Estrutura do Projeto
-```
-├── backend
-│   ├── src
-│   │   ├── main
-│   │   │   ├── java
-│   │   │   └── resources
-│   │   └── test
-├── frontend
-│   ├── src
-│   │   ├── components
-│   │   ├── services
-│   │   └── styles
-├── README.md
-```
-## Como Executar o Projeto
-- **Backend**:
-  1. Navegue até a pasta do backend.
-  2. Compile e execute a aplicação usando:
-     ```
-        ./mvnw spring-boot:run
-     
-     ```
-  3. Acesse a API em: http://localhost:8080
-- **Frontend**:
-1. Navegue até a pasta do frontend.
-2. Instale as dependências:
-```
-npm install
-```
-3. Execute a aplicação:
-```
-npm start
-```
-4. Acesse o frontend em: http://localhost:3000
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## Documentação da API
-A documentação da API está disponível no Swagger. Após iniciar o backend, acesse: http://localhost:8080/swagger-ui.html
+### `npm test`
 
-## Configuração do Ambiente
-Pré-requisitos
-Java 17 ou superior
-Maven
-Node.js e npm (para o frontend)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Instalação
-1. Clone o repositório: git clone
-```
-https://github.com/seu_usuario/seu_repositorio.git
-cd seu_repositorio
-```
-- **Backend**:
-Navegue até a pasta do backend e execute:
-```
-cd backend
-mvn spring-boot:run
-```
-2. A API estará disponível em http://localhost:8080.
+### `npm run build`
 
-- **Frontend**:
-Navegue até a pasta do frontend e execute:
-```
-cd frontend
-npm install
-npm start
-```
-2. O frontend estará disponível em http://localhost:3000.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Documentação da API
-A documentação da API está disponível através do Swagger UI em:
-http://localhost:8080/swagger-ui/index.html
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## Contribuições
-Contribuições são bem-vindas! Se você deseja contribuir para o projeto, siga estas etapas:
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-1. Faça um fork do projeto.
-2. Crie uma nova branch (git checkout -b minha-feature).
-3. Faça suas alterações e commit (git commit -m 'Adicionei uma nova feature').
-4. Envie sua branch (git push origin minha-feature).
-5. Crie um novo Pull Request.
-## Licença
-Somente para estudo e visualizar.
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

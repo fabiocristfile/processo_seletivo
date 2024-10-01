@@ -17,7 +17,7 @@ public class DataInitializer {
 
     @PostConstruct
     public void init() {
-        if (diretorioRepository.findByNome("Root").isEmpty()) {
+        if (!diretorioRepository.findByNome("Root").isPresent()) {
             Diretorio root = new Diretorio();
             root.setNome("Root");
 
