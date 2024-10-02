@@ -9,6 +9,7 @@ Uma aplicação para gerenciar diretórios e arquivos de forma simples e eficaz,
   - Java 17
   - H2 Database
   - Maven
+  - lombok
 
 - **Frontend:**
   - React.js
@@ -17,6 +18,10 @@ Uma aplicação para gerenciar diretórios e arquivos de forma simples e eficaz,
 - **Docker:**
   - Docker
   - Docker Compose
+ 
+- **Teste:**
+  - Junit 5
+  - Mockito  
 
 ## Funcionalidades
 
@@ -51,38 +56,40 @@ Antes de executar o projeto, certifique-se de ter as seguintes ferramentas insta
 ## Instalação
 
 1. **Clone o repositório:**
-
    ```bash
    git clone https://github.com/fabiocristfile/processo_seletivo.git
    ```
-2. **Navegue até o diretório do projeto:
+2. **Navegue até o diretório do projeto:**
 ```bash
     cd processo_seletivo
 ```
-3. **Construa e inicie a aplicação usando Docker Compose:
+3. **Construa e inicie a aplicação usando Docker Compose:**
  ```bash
  docker-compose up --build
 ```
-4. **Acesse a aplicação:
+4. **Acesse a aplicação:**
 
-##Frontend: http://localhost:3000
-##Backend: http://localhost:8080
+## Frontend: http://localhost:3000
+## Backend: http://localhost:8080
 
-##Testes
+## Testes
 A aplicação foi testada localmente, e todos os recursos estão funcionando conforme o esperado. Utilize ferramentas como Postman para realizar testes na API.
 
 ## Documentação da API
 A documentação da API está disponível no Swagger. Após iniciar o backend, acesse: http://localhost:8080/swagger-ui.html
 
-##Como Contribuir
+## Tela Inicial
+![image](https://github.com/user-attachments/assets/17b0e0ff-7c69-49e2-89e6-c0e06ea2b739)
+
+## Como Contribuir
 Contribuições são bem-vindas! Sinta-se à vontade para abrir um problema ou enviar um pedido de pull.
 
-##Licença
+## Licença
 Este projeto está licenciado sob a MIT License.
 
-##Contato
+## Contato
 Se você tiver dúvidas ou sugestões, entre em contato:
 
-*Nome: Fábio Cristiano
-*Email: fabiocristfile@gmail.com
-*GitHub: https://github.com/fabiocristfile
+**Nome: Fábio Cristiano**
+**Email: fabiocristfile@gmail.com**
+**GitHub: https://github.com/fabiocristfile**
