@@ -1,7 +1,5 @@
 # Processo Seletivo - Projeto de Gestão de Diretórios e Arquivos
 
-![Logo da Aplicação](link-da-imagem)
-
 Uma aplicação para gerenciar diretórios e arquivos de forma simples e eficaz, desenvolvida com **Spring Boot** no backend e **React** no frontend. Este projeto foi criado como parte de um processo seletivo, demonstrando habilidades em desenvolvimento de software.
 
 ## Tecnologias Utilizadas
