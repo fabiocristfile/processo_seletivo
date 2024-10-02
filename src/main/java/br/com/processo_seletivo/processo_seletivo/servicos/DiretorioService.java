@@ -3,13 +3,12 @@ package br.com.processo_seletivo.processo_seletivo.servicos;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.EntityNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.processo_seletivo.processo_seletivo.entidades.Diretorio;
 import br.com.processo_seletivo.processo_seletivo.repositorios.DiretorioRepository;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class DiretorioService implements CrudService<Diretorio, Long> {

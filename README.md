@@ -1,29 +1,31 @@
-# Projeto de Gestão de Diretórios e Arquivos
+# Processo Seletivo - Projeto de Gestão de Diretórios e Arquivos
 
-Este projeto é uma aplicação para gerenciar diretórios e arquivos, permitindo operações de CRUD (Criar, Ler, Atualizar e Deletar) em um sistema de diretórios. A aplicação utiliza Spring Boot para o backend e React.js para o frontend, com comunicação em tempo real utilizando WebSockets.
+![Logo da Aplicação](link-da-imagem)
 
-## Funcionalidades
-
-- **CRUD de Diretórios**: Criar, ler, atualizar e deletar diretórios.
-- **CRUD de Arquivos**: Criar, ler, atualizar e deletar arquivos dentro dos diretórios.
-- **Hierarquia de Diretórios**: Visualização e navegação em subdiretórios.
-- **Comunicação em Tempo Real**: Notificações sobre alterações em arquivos e diretórios utilizando WebSockets.
-- **Documentação da API**: Documentação da API disponível através do Swagger.
+Uma aplicação para gerenciar diretórios e arquivos de forma simples e eficaz, desenvolvida com **Spring Boot** no backend e **React** no frontend. Este projeto foi criado como parte de um processo seletivo, demonstrando habilidades em desenvolvimento de software.
 
 ## Tecnologias Utilizadas
 
-- **Backend**: 
-  - Backend: Spring Boot
-  - Frontend: React.js
-  - Banco de Dados: H2
-  - Testes: JUnit 5, Mockito
-  - Comunicação em Tempo Real: WebSockets, STOMP, SockJS
-  - Documentação: Swagger
-    
-- **Frontend**: 
+- **Backend:**
+  - Spring Boot
+  - Java 17
+  - H2 Database
+  - Maven
+
+- **Frontend:**
   - React.js
-  - Axios (para chamadas HTTP)
-  - CSS para estilização
+  - Axios
+
+- **Docker:**
+  - Docker
+  - Docker Compose
+
+## Funcionalidades
+
+- Criação, leitura, atualização e exclusão (CRUD) de diretórios e arquivos.
+- Interface de usuário amigável desenvolvida com React.
+- Comunicação em tempo real usando WebSockets.
+- Conexão com banco de dados H2 em memória.
 
 ## Estrutura do Projeto
 ```
@@ -40,70 +42,49 @@ Este projeto é uma aplicação para gerenciar diretórios e arquivos, permitind
 │   │   └── styles
 ├── README.md
 ```
-## Como Executar o Projeto
-- **Backend**:
-  1. Navegue até a pasta do backend.
-  2. Compile e execute a aplicação usando:
-     ```
-        ./mvnw spring-boot:run
-     
-     ```
-  3. Acesse a API em: http://localhost:8080
-- **Frontend**:
-1. Navegue até a pasta do frontend.
-2. Instale as dependências:
+
+## Pré-requisitos
+
+Antes de executar o projeto, certifique-se de ter as seguintes ferramentas instaladas:
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+## Instalação
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/fabiocristfile/processo_seletivo.git
+   ```
+2. **Navegue até o diretório do projeto:
+```bash
+    cd processo_seletivo
 ```
-npm install
+3. **Construa e inicie a aplicação usando Docker Compose:
+ ```bash
+ docker-compose up --build
 ```
-3. Execute a aplicação:
-```
-npm start
-```
-4. Acesse o frontend em: http://localhost:3000
+4. **Acesse a aplicação:
+
+##Frontend: http://localhost:3000
+##Backend: http://localhost:8080
+
+##Testes
+A aplicação foi testada localmente, e todos os recursos estão funcionando conforme o esperado. Utilize ferramentas como Postman para realizar testes na API.
 
 ## Documentação da API
 A documentação da API está disponível no Swagger. Após iniciar o backend, acesse: http://localhost:8080/swagger-ui.html
 
-## Configuração do Ambiente
-Pré-requisitos
-Java 17 ou superior
-Maven
-Node.js e npm (para o frontend)
+##Como Contribuir
+Contribuições são bem-vindas! Sinta-se à vontade para abrir um problema ou enviar um pedido de pull.
 
-## Instalação
-1. Clone o repositório: git clone
-```
-https://github.com/seu_usuario/seu_repositorio.git
-cd seu_repositorio
-```
-- **Backend**:
-Navegue até a pasta do backend e execute:
-```
-cd backend
-mvn spring-boot:run
-```
-2. A API estará disponível em http://localhost:8080.
+##Licença
+Este projeto está licenciado sob a MIT License.
 
-- **Frontend**:
-Navegue até a pasta do frontend e execute:
-```
-cd frontend
-npm install
-npm start
-```
-2. O frontend estará disponível em http://localhost:3000.
+##Contato
+Se você tiver dúvidas ou sugestões, entre em contato:
 
-## Documentação da API
-A documentação da API está disponível através do Swagger UI em:
-http://localhost:8080/swagger-ui/index.html
-
-## Contribuições
-Contribuições são bem-vindas! Se você deseja contribuir para o projeto, siga estas etapas:
-
-1. Faça um fork do projeto.
-2. Crie uma nova branch (git checkout -b minha-feature).
-3. Faça suas alterações e commit (git commit -m 'Adicionei uma nova feature').
-4. Envie sua branch (git push origin minha-feature).
-5. Crie um novo Pull Request.
-## Licença
-Somente para estudo e visualizar.
+*Nome: Fábio Cristiano
+*Email: fabiocristfile@gmail.com
+*GitHub: https://github.com/fabiocristfile

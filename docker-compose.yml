@@ -1,15 +1,21 @@
-version: '3.8'
+version: '3.8' # Certifique-se de especificar a versão
+
 services:
   backend:
-    build: .
+    build:
+      context: C:\Users\fabio\Documents\workspace-spring\processo-seletivo
     ports:
       - "8080:8080"
-    depends_on:
-      - db
-  db:
-    image: h2:latest
-    ports:
-      - "9092:9092"
     environment:
-      - H2_OPTIONS=--tcp
-      - H2_OPTIONS=--tcpAllowOthers
+      SPRING_DATASOURCE_URL: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      SPRING_H2_CONSOLE_ENABLED: "true"
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.h2.Driver
+      SPRING_DATASOURCE_USERNAME: sa
+      SPRING_DATASOURCE_PASSWORD: 
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+  frontend:
+    build:
+      context: ./frontend-diretorios
+    ports:
+      - "3000:80"

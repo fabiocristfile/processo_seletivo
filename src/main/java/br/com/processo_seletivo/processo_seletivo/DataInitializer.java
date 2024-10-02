@@ -1,13 +1,12 @@
 package br.com.processo_seletivo.processo_seletivo;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 import br.com.processo_seletivo.processo_seletivo.entidades.Arquivo;
 import br.com.processo_seletivo.processo_seletivo.entidades.Diretorio;
 import br.com.processo_seletivo.processo_seletivo.repositorios.DiretorioRepository;
+import jakarta.annotation.PostConstruct;
 
 @Configuration
 public class DataInitializer {

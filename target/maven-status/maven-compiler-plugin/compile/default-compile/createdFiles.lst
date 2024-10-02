@@ -1,0 +1,13 @@
+br\com\processo_seletivo\processo_seletivo\controlers\ArquivoController.class
+br\com\processo_seletivo\processo_seletivo\entidades\Diretorio.class
+br\com\processo_seletivo\processo_seletivo\servicos\ArquivoService.class
+br\com\processo_seletivo\processo_seletivo\servicos\DiretorioService.class
+br\com\processo_seletivo\processo_seletivo\repositorios\DiretorioRepository.class
+br\com\processo_seletivo\processo_seletivo\repositorios\ArquivoRepository.class
+br\com\processo_seletivo\processo_seletivo\controlers\DiretorioController.class
+br\com\processo_seletivo\processo_seletivo\servicos\CrudService.class
+br\com\processo_seletivo\processo_seletivo\Application.class
+br\com\processo_seletivo\processo_seletivo\entidades\Arquivo.class
+br\com\processo_seletivo\processo_seletivo\config\WebSocketConfig.class
+br\com\processo_seletivo\processo_seletivo\config\SwaggerConfig.class
+br\com\processo_seletivo\processo_seletivo\DataInitializer.class

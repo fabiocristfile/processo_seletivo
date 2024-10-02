@@ -3,13 +3,12 @@ package br.com.processo_seletivo.processo_seletivo.servicos;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.EntityNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.processo_seletivo.processo_seletivo.entidades.Arquivo;
 import br.com.processo_seletivo.processo_seletivo.repositorios.ArquivoRepository;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ArquivoService implements CrudService<Arquivo, Long> {

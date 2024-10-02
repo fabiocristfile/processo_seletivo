@@ -1,14 +1,37 @@
-# Usar a imagem do JDK 8
-FROM openjdk:8-jdk-alpine
+# Use uma imagem do Maven 
+FROM maven:3.8.5-openjdk-17 AS build
 
-# Definir o diretório de trabalho no container
+# Defina o diretório de trabalho
 WORKDIR /app
 
-# Copiar o arquivo JAR gerado para dentro do container
-COPY target/processo_seletivo.jar /app/processo_seletivo.jar
+# Copie o pom.xml
+COPY pom.xml . 
 
-# Informar ao Docker que a aplicação será exposta na porta 8080
-EXPOSE 8080
+# Copie o restante dos arquivos do projeto
+COPY src ./src
 
-# Comando para rodar a aplicação
-ENTRYPOINT ["java", "-jar", "processo_seletivo.jar"]
+# Copie o pom.xml e os arquivos de wrapper do Maven
+COPY mvnw ./
+COPY mvnw.cmd ./
+COPY .mvn ./.mvn 
+
+# Copie o restante dos arquivos do projeto
+COPY src ./src
+
+## Dê permissão ao script mvnw
+RUN chmod +x mvnw
+
+# Limpe a variável de ambiente MAVEN_CONFIG
+ENV MAVEN_CONFIG=""
+
+# Execute o Maven para compilar o projeto
+RUN ./mvnw clean package -DskipTests -X
+
+# Use uma imagem leve para o aplicativo em execução
+FROM openjdk:17-jdk-slim
+
+# Copie o arquivo JAR gerado
+COPY --from=build /app/target/processo-seletivo-2.0.0-FINAL.jar app.jar
+
+# Comando para iniciar o aplicativo
+ENTRYPOINT ["java", "-jar", "/app.jar"]
